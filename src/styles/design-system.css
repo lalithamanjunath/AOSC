@@ -1,0 +1,544 @@
+/**
+ * Design System CSS Custom Properties
+ *
+ * Global CSS variables extracted from sosc-website-v2 design system.
+ * These properties are used throughout the application for consistent theming.
+ *
+ * Import this file in your main application entry point (main.jsx or App.jsx)
+ * BEFORE any other stylesheets to ensure variables are available everywhere.
+ */
+
+/* ============================================================================
+   ROOT VARIABLES (Light Mode)
+   ========================================================================== */
+
+:root {
+  /* COLORS - Primary Brand */
+  --color-primary: oklch(78.419% 0.23837 145.933);
+  --color-primary-foreground: oklch(1 0 0);
+  --color-primary-light: oklch(92% 0.12 145.933);
+  --color-primary-dark: oklch(54% 0.18 145.933);
+
+  /* COLORS - Secondary */
+  --color-secondary: oklch(0.95 0.01 140);
+  --color-secondary-foreground: oklch(0.2 0 0);
+  --color-secondary-light: oklch(0.98 0.001 140);
+
+  /* COLORS - Muted (neutral grays) */
+  --color-muted: oklch(0.96 0.005 140);
+  --color-muted-foreground: oklch(0.4 0.01 140);
+
+  /* COLORS - Accent (uses primary green for visual consistency) */
+  --color-accent: var(--color-primary-light); /* Light green background */
+  --color-accent-foreground: var(--color-primary); /* Dark green text */
+
+  /* COLORS - Status */
+  --color-destructive: oklch(0.6 0.2 30);
+  --color-success: oklch(78.419% 0.23837 145.933);
+  --color-warning: oklch(0.75 0.15 80);
+  --color-info: oklch(0.65 0.2 220);
+
+  /* COLORS - Neutral */
+  --color-background: oklch(1 0 0);
+  --color-foreground: oklch(32.109% 0.00004 271.152);
+  --color-card: oklch(1 0 0);
+  --color-card-foreground: oklch(0.2 0 0);
+  --color-popover: oklch(1 0 0);
+  --color-popover-foreground: oklch(0.2 0 0);
+
+  /* COLORS - UI Elements */
+  --color-border: oklch(0.9 0 0);
+  --color-input: oklch(0.93 0 0);
+  --color-ring: var(--color-primary); /* Green focus ring (from primary brand) */
+
+  /* COLORS - Sidebar (if used) */
+  --color-sidebar: oklch(0.98 0.001 140);
+  --color-sidebar-foreground: oklch(0.2 0 0);
+
+  /* COLORS - Chart/Data Viz */
+  --color-chart-1: #3ce56e;
+  --color-chart-2: #0066ff;
+  --color-chart-3: #ff6b6b;
+  --color-chart-4: #ffd700;
+  --color-chart-5: #00d4ff;
+
+  /* ========================================================================
+     ANIMATIONS - Easing Functions
+     ======================================================================== */
+
+  --easing-elastic: cubic-bezier(0.77, 0, 0.175, 1);
+  --easing-elastic-variant: cubic-bezier(0.83, 0, 0.17, 1);
+  --easing-bounce: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --easing-standard: ease-out;
+  --easing-linear: linear;
+  --easing-ease-in: ease-in;
+  --easing-ease-in-out: ease-in-out;
+
+  /* ========================================================================
+     ANIMATIONS - Durations
+     ======================================================================== */
+
+  --duration-ultra-fast: 0.12s;
+  --duration-fast: 0.3s;
+  --duration-medium: 0.5s;
+  --duration-slow: 0.6s;
+  --duration-slower: 0.7s;
+  --duration-slowest: 0.8s;
+
+  /* ========================================================================
+     ANIMATIONS - Stagger Delays
+     ======================================================================== */
+
+  --stagger-tight: 0.04s;
+  --stagger-normal: 0.08s;
+  --stagger-loose: 0.12s;
+  --stagger-per-item: 0.05s;
+
+  /* Manual stagger timing (for menu layouts) */
+  --stagger-section-top: 0.1s;
+  --stagger-section-middle: 0.2s;
+  --stagger-section-bottom: 0.6s;
+
+  /* ========================================================================
+     TRANSITIONS - Predefined Classes
+     ======================================================================== */
+
+  /* Note: These can't be used as custom properties directly in CSS,
+     but are defined as composable values for Tailwind/styled-components */
+
+  /* ========================================================================
+     SPACING
+     ======================================================================== */
+
+  --spacing-0: 0px;
+  --spacing-0-5: 2px;
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 20px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+  --spacing-10: 40px;
+  --spacing-12: 48px;
+  --spacing-16: 64px;
+  --spacing-20: 80px;
+  --spacing-24: 96px;
+  --spacing-28: 112px;
+  --spacing-32: 128px;
+  --spacing-36: 144px;
+  --spacing-40: 160px;
+  --spacing-44: 176px;
+  --spacing-48: 192px;
+
+  /* ========================================================================
+     TYPOGRAPHY
+     ======================================================================== */
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Righteous', system-ui, serif;
+  --font-mono: 'Fira Code', 'Courier New', monospace;
+
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+  --line-height-loose: 2;
+
+  /* ========================================================================
+     SHADOWS & ELEVATION
+     ========================================================================*/
+
+  --shadow-none: none;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+  --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+
+  /* Card-specific shadows */
+  --shadow-card-rest: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --shadow-card-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --shadow-card-active: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+
+  /* Glow effects */
+  --shadow-glow-soft: 0 0 30px rgba(60, 229, 110, 0.15);
+  --shadow-glow-medium: 0 0 50px rgba(60, 229, 110, 0.25);
+  --shadow-glow-strong: 0 0 80px rgba(60, 229, 110, 0.35);
+
+  /* ========================================================================
+     BORDER & RADIUS
+     ======================================================================== */
+
+  --radius: 0.625rem;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: 1rem;
+  --radius-full: 9999px;
+
+  --border-width-0: 0px;
+  --border-width-1: 1px;
+  --border-width-2: 2px;
+  --border-width-4: 4px;
+  --border-width-8: 8px;
+
+  /* ========================================================================
+     FOCUS & INTERACTION STATES
+     ======================================================================== */
+
+  --focus-ring-width: 2px;
+  --focus-ring-offset: 2px;
+  --focus-ring-color: var(--color-primary);
+
+  --state-disabled-opacity: 0.5;
+  --state-hover-opacity: 0.8;
+  --state-active-opacity: 0.9;
+}
+
+/* ============================================================================
+   DARK MODE OVERRIDES
+   ========================================================================== */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* COLORS - Neutral (dark mode) */
+    --color-background: oklch(0.15 0 0);
+    --color-foreground: oklch(1 0 0);
+    --color-card: oklch(0.2 0 0);
+    --color-card-foreground: oklch(1 0 0);
+    --color-popover: oklch(0.2 0 0);
+    --color-popover-foreground: oklch(1 0 0);
+
+    /* COLORS - Secondary (dark mode) */
+    --color-secondary: oklch(0.25 0.01 140);
+    --color-secondary-foreground: oklch(1 0 0);
+    --color-secondary-light: oklch(0.3 0.01 140);
+
+    /* COLORS - Muted (dark mode) */
+    --color-muted: oklch(0.25 0.01 140);
+    --color-muted-foreground: oklch(0.75 0.02 140);
+
+    /* COLORS - Accent (dark mode, uses primary green) */
+    --color-accent: var(--color-primary-light); /* Light green */
+    --color-accent-foreground: var(--color-primary); /* Dark green text */
+
+    /* COLORS - UI Elements (dark mode) */
+    --color-border: oklch(0.25 0 0);
+    --color-input: oklch(0.25 0 0);
+    --color-ring: var(--color-primary); /* Green focus ring (consistent) */
+
+    /* COLORS - Sidebar (dark mode) */
+    --color-sidebar: oklch(0.2 0 0);
+    --color-sidebar-foreground: oklch(1 0 0);
+
+    /* Primary color remains the same in dark mode */
+    --color-primary: oklch(78.419% 0.23837 145.933);
+    --color-primary-foreground: oklch(1 0 0);
+  }
+}
+
+/* ============================================================================
+   APPLY DESIGN TOKENS TO GLOBAL ELEMENTS
+   ========================================================================== */
+
+html {
+  /* Use system scrollbar gutter to prevent layout shift */
+  scrollbar-gutter: stable;
+  color-scheme: light dark;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+  transition: background-color var(--duration-medium) var(--easing-standard),
+              color var(--duration-medium) var(--easing-standard);
+}
+
+/* Reset border colors to use design system */
+* {
+  border-color: var(--color-border);
+}
+
+/* Reset outline to use design system */
+*:focus-visible {
+  outline-offset: var(--focus-ring-offset);
+  outline-width: var(--focus-ring-width);
+  outline-color: var(--focus-ring-color);
+}
+
+/* ============================================================================
+   SCROLLBAR STYLING (sosc-like green thumbs)
+   ========================================================================== */
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary) var(--color-background);
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary);
+  border-radius: 999px;
+  border: 2px solid var(--color-background);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-primary-dark);
+}
+
+/* ============================================================================
+   UTILITY CLASSES FOR ANIMATIONS
+   ========================================================================== */
+
+/* Animation Keyframes (from SOSC) */
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(60, 229, 110, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(60, 229, 110, 0.5);
+  }
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Transition utilities - use these as class names or reference */
+.transition-fast {
+  transition: var(--duration-fast) var(--easing-standard);
+}
+
+.transition-medium {
+  transition: var(--duration-medium) var(--easing-standard);
+}
+
+.transition-slow {
+  transition: var(--duration-slow) var(--easing-standard);
+}
+
+.transition-elastic {
+  transition: var(--duration-slow) var(--easing-elastic);
+}
+
+/* Transition specific properties */
+.transition-colors-fast {
+  transition-property: color, background-color, border-color;
+  transition-duration: var(--duration-fast);
+  transition-timing-function: var(--easing-standard);
+}
+
+.transition-transform-medium {
+  transition-property: transform;
+  transition-duration: var(--duration-medium);
+  transition-timing-function: var(--easing-standard);
+}
+
+.transition-filter-slow {
+  transition-property: filter, backdrop-filter;
+  transition-duration: var(--duration-slower);
+  transition-timing-function: var(--easing-standard);
+}
+
+/* Utility for 0-indexed stagger delays */
+.stagger {
+  --index: 0;
+  transition-delay: calc(var(--index) * var(--stagger-normal));
+}
+
+/* ============================================================================
+   ACCENT COLOR OVERRIDES (uses primary green)
+   ========================================================================== */
+
+/* Ensure all accent elements use primary green */
+[class*="accent"] {
+  color: var(--color-accent-foreground);
+  background-color: var(--color-accent);
+}
+
+/* Ring/Focus states - use primary green */
+[class*="ring"] {
+  outline-color: var(--color-ring);
+  border-color: var(--color-ring);
+}
+
+/* Global cyan color replacements with primary green */
+.bg-cyan-50,
+.bg-cyan-100,
+.bg-cyan-200 {
+  background-color: oklch(92% 0.12 145.933) !important;
+}
+
+.text-cyan-500,
+.text-cyan-600,
+.text-cyan-700 {
+  color: oklch(78.419% 0.23837 145.933) !important;
+}
+
+.bg-cyan-500,
+.bg-cyan-600 {
+  background-color: oklch(78.419% 0.23837 145.933) !important;
+}
+
+.border-cyan-500 {
+  border-color: oklch(78.419% 0.23837 145.933) !important;
+}
+
+/* Gradient overrides - from cyan to primary green */
+.from-cyan-50,
+.from-cyan-100 {
+  --tw-gradient-from: oklch(92% 0.12 145.933) var(--tw-gradient-from-position);
+}
+
+.to-cyan-100,
+.to-cyan-400,
+.to-cyan-500 {
+  --tw-gradient-to: oklch(78.419% 0.23837 145.933) var(--tw-gradient-to-position);
+}
+
+.from-cyan-400,
+.from-cyan-500 {
+  --tw-gradient-from: oklch(78.419% 0.23837 145.933) var(--tw-gradient-from-position);
+}
+
+/* Dark mode cyan overrides */
+.dark .bg-cyan-50,
+.dark .bg-cyan-100 {
+  background-color: oklch(92% 0.12 145.933) !important;
+}
+
+.dark .text-cyan-500 {
+  color: oklch(78.419% 0.23837 145.933) !important;
+}
+
+.dark .shadow-cyan-500 {
+  --tw-shadow-color: oklch(78.419% 0.23837 145.933);
+}
+
+/* Shadow overrides - cyan to primary green */
+.shadow-cyan-500 {
+  --tw-shadow-color: oklch(78.419% 0.23837 145.933);
+}
+
+/* Active/Focus state data attributes */
+[data-state="active"] {
+  background-color: oklch(78.419% 0.23837 145.933) !important;
+  color: white !important;
+}
+
+/* Primary brand accent for interactive elements */
+.group-hover\:text-primary,
+.hover\:text-primary {
+  --tw-text-opacity: 1;
+  color: rgb(from var(--color-primary) r g b / var(--tw-text-opacity));
+}
+
+.group-hover\:bg-primary\/10,
+.hover\:bg-primary\/10 {
+  background-color: rgb(from var(--color-primary) r g b / 0.1);
+}
+
+.group-hover\:bg-primary\/20,
+.hover\:bg-primary\/20 {
+  background-color: rgb(from var(--color-primary) r g b / 0.2);
+}
+
+.group-hover\:border-primary,
+.hover\:border-primary {
+  border-color: var(--color-primary);
+}
+
+.group-hover\:border-primary\/20,
+.hover\:border-primary\/20 {
+  border-color: rgb(from var(--color-primary) r g b / 0.2);
+}
+
+/* Sidebar accent uses primary */
+.sidebar \[class*="accent"\] {
+  background-color: var(--color-primary);
+  color: var(--color-primary-foreground);
+}
+
+/* ============================================================================
+   RESPONSIVE FOCUS STYLES
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+}

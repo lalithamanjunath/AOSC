@@ -83,7 +83,7 @@ export default function HeroSection() {
           className="relative"
         >
           <motion.h1
-            className="aosc-logo text-[48px] sm:text-[80px] md:text-[140px] lg:text-[180px] leading-none text-slate-900 cursor-hover"
+            className="aosc-logo text-[48px] sm:text-[80px] md:text-[140px] lg:text-[180px] leading-none text-green-500 cursor-hover"
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
