@@ -19,6 +19,7 @@ export default function Projects() {
     initialData: [],
   });
 
+
   const filteredProjects = useMemo(() => {
     return projects.filter((project) => {
       const matchesSearch = 
@@ -37,8 +38,6 @@ export default function Projects() {
     });
   }, [projects, filters]);
 
-  const communityProjects = filteredProjects.filter(p => p.category === 'community');
-  const memberProjects = filteredProjects.filter(p => p.category === 'member');
 
   return (
     <div className="min-h-screen bg-slate-50 py-12 px-4 sm:px-8 lg:px-16">
@@ -60,6 +59,7 @@ export default function Projects() {
         {/* Filters */}
         <ProjectFilters filters={filters} setFilters={setFilters} />
 
+
         {/* Loading State */}
         {isLoading && (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -76,32 +76,8 @@ export default function Projects() {
           </div>
         )}
 
-        {/* Community Projects */}
-        {!isLoading && (filters.category === 'all' || filters.category === 'community') && communityProjects.length > 0 && (
-          <section className="mb-16">
-            <h2 className="text-2xl font-bold text-slate-900 mb-6">Community Projects</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {communityProjects.map((project, index) => (
-                <ProjectCard key={project.id} project={project} index={index} />
-              ))}
-            </div>
-          </section>
-        )}
-
-        {/* Member Projects */}
-        {!isLoading && (filters.category === 'all' || filters.category === 'member') && memberProjects.length > 0 && (
-          <section className="mb-16">
-            <h2 className="text-2xl font-bold text-slate-900 mb-6">Member Projects</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {memberProjects.map((project, index) => (
-                <ProjectCard key={project.id} project={project} index={index} />
-              ))}
-            </div>
-          </section>
-        )}
-
-        {/* All projects if no category distinction */}
-        {!isLoading && filteredProjects.length > 0 && communityProjects.length === 0 && memberProjects.length === 0 && (
+        {/* Projects grid */}
+        {!isLoading && filteredProjects.length > 0 && (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredProjects.map((project, index) => (
               <ProjectCard key={project.id} project={project} index={index} />
