@@ -10,6 +10,7 @@ const navLinks = [
   { name: 'Projects', page: 'Projects' },
   { name: 'Team', page: 'Team' },
   { name: 'Events', page: 'Events' },
+  { name: 'Articles', page: 'Articles' },
 ];
 
 export default function Navbar() {

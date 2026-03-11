@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Projects from './pages/Projects';
 import Team from './pages/Team';
 import Events from './pages/Events';
+import Articles from './pages/Articles';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -25,6 +26,8 @@ function App() {
             <Route path="/projects" element={<Projects />} />
             <Route path="/team" element={<Team />} />
             <Route path="/events" element={<Events />} />
+            <Route path="/articles" element={<Articles />} />
+            
           </Routes>
         </Layout>
       </BrowserRouter>
